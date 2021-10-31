@@ -66,10 +66,16 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 
 	@Override
 	public Employe retrieveEmploye(String id) {
-		l.info("In Method retrieveEmploye :");
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		Employe u =  employeRepository.findById(Long.parseLong(id)).get(); 
-		l.info("Out Of Method retrieveEmploye With Succes");
+		Employe u = null;
+		try {
+			
+			l.info("In Method retrieveEmploye :");
+			u =  employeRepository.findById(Long.parseLong(id)).get(); 
+			l.info("Out Of Method retrieveEmploye With Succes");
+			
+		}catch(Exception e) {
+			l.error("Out Of Method retrieveEmploye With Errors: "+e);
+		}
 		return u; 
 	}
 

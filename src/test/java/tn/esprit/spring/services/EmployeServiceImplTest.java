@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.spring.entities.Employe;
+//import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.entities.Role;
 
 @SpringBootTest
@@ -25,22 +26,23 @@ public class EmployeServiceImplTest {
 	@Order(1)
 	public void retrieveAllEmployes() {
 		List<Employe> listUsers = es.retrieveAllEmployes();
-		Assertions.assertEquals(6, listUsers.size());
+		Assertions.assertEquals(5, listUsers.size());
 	}
 	
 	@Test
  	@Order(2)
 	public void testAddEmploye() {
 		
-		Employe emp = new Employe("AHMED", "BEN HAFSSIA","AHMED.BENHAFSSIA@gmail.com", "AHMED", false, Role.TECHNICIEN);
+		Employe emp = new Employe("MOHAMED", "DHAHRI","MOHAMED.AMIN@gmail.com", "MEDAMINE", false, Role.ADMINISTRATEUR);
 		Employe empAdd = es.addEmploye(emp);
 		Assertions.assertEquals(emp.getNom(), empAdd.getNom());
-	}
+	}	
+
 
 	@Test
  	@Order(3)
 	public void testUpdateEmploye() {
-		Employe emp = new Employe(1,"JHONY", "DEPP","JHONY.DEPP1@gmail.com", "JHONY", false, Role.TECHNICIEN);
+		Employe emp = new Employe(3L,"JIHENE", "ARFAOUI","JIHEN.ARFAOUI@gmail.com", "JIJI", false, Role.INGENIEUR);
 		Employe empUpdated = es.addEmploye(emp);
 		Assertions.assertEquals(emp.getEmail(), empUpdated.getEmail());
 	}
@@ -55,10 +57,20 @@ public class EmployeServiceImplTest {
 	@Test
  	@Order(5)
 	public void testDeleteEmploye(){
-		es.deleteEmploye("6");
-		Assertions.assertNull(es.retrieveEmploye("6"));
+		es.deleteEmploye("8");
+		Assertions.assertNull(es.retrieveEmploye("8"));
 	}
  	
+
+
+
+
+
+
+	
+
+
+	
 	
 
 }
