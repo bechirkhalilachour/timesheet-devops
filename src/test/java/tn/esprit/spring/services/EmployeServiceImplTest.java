@@ -42,7 +42,7 @@ public class EmployeServiceImplTest {
 	@Test
  	@Order(3)
 	public void testUpdateEmploye() {
-		Employe emp = new Employe(3L,"JIHENE", "ARFAOUI","JIHEN.ARFAOUI@gmail.com", "JIJI", false, Role.INGENIEUR);
+		Employe emp = new Employe(3L,"JIHENE", "ARFAOUI","JIHEN.ARFAOUI@gmail.com", "JIJI", false, Role.CHEF_DEPARTEMENT);
 		Employe empUpdated = es.addEmploye(emp);
 		Assertions.assertEquals(emp.getEmail(), empUpdated.getEmail());
 	}
@@ -57,8 +57,8 @@ public class EmployeServiceImplTest {
 	@Test
  	@Order(5)
 	public void testDeleteEmploye(){
-		es.deleteEmploye("8");
-		Assertions.assertNull(es.retrieveEmploye("8"));
+		es.deleteEmploye("9");
+		Assertions.assertNull(es.retrieveEmploye("9"));
 	}
  	
 

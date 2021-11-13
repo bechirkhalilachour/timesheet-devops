@@ -26,8 +26,8 @@ public class UserServiceImpl implements IUserService {
 	
 			l.info("In Method retrieveAllUsers : ");
 			users = (List<User>) userRepository.findAll();  
-			for (User user : users) {
-				// TODO Log à ajouter pour affiher chaque user dans les logs   
+			for (User user : users) {   
+				l.info("User:"+user.toString());
 			} 
 			l.info("Out Of Method retrieveAllUsers With Succes");
 		}catch (Exception e) {
@@ -41,17 +41,17 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User addUser(User u) {
 		l.info("In Method addUser :"); 
-		User u_saved = userRepository.save(u); 
+		User uSaved = userRepository.save(u); 
 		l.info("Out Of Method addUser With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override 
 	public User updateUser(User u) { 
 		l.info("In Method updateUser :"); 
-		User u_saved = userRepository.save(u); 
+		User uSaved = userRepository.save(u); 
 		l.info("Out Of Method updateUser With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override
@@ -66,11 +66,8 @@ public class UserServiceImpl implements IUserService {
 		User u = null ;
 		try {
 			l.info("In Method retrieveUser :");
-			//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-			u =  userRepository.findById(Long.parseLong(id)).get(); 
+			u =  userRepository.findById(Long.parseLong(id)).orElse(null);
 			l.info("Out Of Method retrieveUser With Succes");
-			 
-		
 		}catch (Exception e) {
 			l.error("Out Of Method retrieveUser With Errors: "+e); 
 		}

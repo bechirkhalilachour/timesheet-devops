@@ -30,7 +30,7 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 			l.info("In Method retrieveAllEmployes : ");
 			emps = (List<Employe>) employeRepository.findAll();  
 			for (Employe emp : emps) {
-				// TODO Log à ajouter pour affiher chaque user dans les logs   
+				l.info("Employée:"+emp.toString());   
 			} 
 			l.info("Out Of Method retrieveAllEmployes With Succes");
 		}catch (Exception e) {
@@ -44,17 +44,17 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 	@Override
 	public Employe addEmploye(Employe u) {
 		l.info("In Method addEmploye :"); 
-		Employe u_saved = employeRepository.save(u); 
+		Employe uSaved = employeRepository.save(u); 
 		l.info("Out Of Method addEmploye With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override 
 	public Employe updateEmploye(Employe u) { 
 		l.info("In Method updateEmploye :"); 
-		Employe u_saved = employeRepository.save(u); 
+		Employe uSaved = employeRepository.save(u); 
 		l.info("Out Of Method updateEmploye With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 		try {
 			
 			l.info("In Method retrieveEmploye :");
-			u =  employeRepository.findById(Long.parseLong(id)).get(); 
+			u =  employeRepository.findById(Long.parseLong(id)).orElse(null);
 			l.info("Out Of Method retrieveEmploye With Succes");
 			
 		}catch(Exception e) {
