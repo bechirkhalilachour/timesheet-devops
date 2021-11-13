@@ -26,7 +26,7 @@ public class EmployeServiceImplTest {
 	@Order(1)
 	public void retrieveAllEmployes() {
 		List<Employe> listUsers = es.retrieveAllEmployes();
-		Assertions.assertEquals(6, listUsers.size());
+		Assertions.assertEquals(8, listUsers.size());
 	}
 	
 	@Test
@@ -57,8 +57,8 @@ public class EmployeServiceImplTest {
 	@Test
  	@Order(5)
 	public void testDeleteEmploye(){
-		es.deleteEmploye("11");
-		Assertions.assertNull(es.retrieveEmploye("11"));
+		es.deleteEmploye("14");
+		Assertions.assertNull(es.retrieveEmploye("14"));
 	}
  	
 
