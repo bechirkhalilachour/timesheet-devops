@@ -66,8 +66,8 @@ class UserServiceImplTest {
 	@Test
 	@Order(5)
 	public void testDeleteUser(){
-		us.deleteUser("15");
-		Assertions.assertNull(us.retrieveUser("15"));
+		us.deleteUser("28");
+		Assertions.assertNull(us.retrieveUser("28"));
 	}
 	
 	
