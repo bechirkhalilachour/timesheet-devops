@@ -30,7 +30,7 @@ class UserServiceImplTest {
 	@Order(1)
 	public void testRetrieveAllUsers() {
 		List<User> listUsers =us.retrieveAllUsers();
-		Assertions.assertEquals(9, listUsers.size());
+		Assertions.assertEquals(8, listUsers.size());
 	}
 
 
@@ -66,8 +66,8 @@ class UserServiceImplTest {
 	@Test
 	@Order(5)
 	public void testDeleteUser(){
-		us.deleteUser("36");
-		Assertions.assertNull(us.retrieveUser("36"));
+		us.deleteUser("41");
+		Assertions.assertNull(us.retrieveUser("41"));
 	}
 	
 	
