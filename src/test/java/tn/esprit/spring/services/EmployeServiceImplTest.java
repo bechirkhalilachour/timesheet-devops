@@ -57,8 +57,8 @@ public class EmployeServiceImplTest {
 	@Test
  	@Order(5)
 	public void testDeleteEmploye(){
-		es.deleteEmploye("27");
-		Assertions.assertNull(es.retrieveEmploye("27"));
+		es.deleteEmploye("28");
+		Assertions.assertNull(es.retrieveEmploye("28"));
 	}
  	
 
